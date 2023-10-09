@@ -1,0 +1,66 @@
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<div class="container">
+    <h1 class="books-header">
+            {{pageTitle}}
+    </h1>
+    <div class="books-container">
+        <div class="books-form">
+            <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                <h3>{{formTitle}}</h3>
+                <div class="form-group">
+                    <input name="id" hidden formControlName="id" [(ngModel)]="book.id" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>Title</label>
+                    <input name="title" formControlName="title" [(ngModel)]="book.title" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>Author</label>
+                    <input name="author" formControlName="author" [(ngModel)]="book.author" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>Year</label>
+                    <input name="publishingYear" formControlName="publishingYear" [(ngModel)]="book.publishingYear" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>Genre</label>
+                    <input name="genre" formControlName="genre" [(ngModel)]="book.genre" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>Discription</label>
+                    <input name="description" formControlName="description" [(ngModel)]="book.description" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>Total in stock</label>
+                    <input name="stock" formControlName="stock" [(ngModel)]="book.stock" class="form-control">
+                </div>
+                <div class="btn-container">
+                        <button class="btn btn-outline-primary" type="submit" >Submit</button>
+                        <button class="btn btn-outline-primary" (click)="reset()">Reset</button>
+                        <button class="btn btn-danger" (click)="deleteBook(book.id)"><i class="fa-regular fa-trash-can"></i></button>
+                </div>
+            </form>
+        </div>
+        <div class="books-grid">
+            <div class="outer">
+                <div class="inner">
+                    <small class="edit-info">Select a book to edit</small>
+                </div>
+            </div>
+            <div class="list-label">
+                <span>Title</span>
+                <span>Author</span>
+            </div>
+            <div (click)="populateForm(book)" class="books-row" *ngFor="let book of books;">
+                <div class="books-row-details">
+                    <span>{{book.title}}</span>
+                    <span>{{book.author}}</span>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

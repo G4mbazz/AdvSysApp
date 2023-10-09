@@ -1,0 +1,23 @@
+
+<div class="content" role="main">
+    <div class="book">
+        <div class="book-list">
+            <form class="book-form" *ngFor="let book of books | appFilter: searchText">
+                <div class="book-item">
+                    <div class="book-details">
+                        <p class="book-title">{{book.title}}</p>
+                        <p class="book-author">Author: {{book.author}}</p>
+                        <div class="book-description">
+                            <p>{{book.description}}</p>
+                        </div>
+                        <div class="book-info">
+                            <p class="genre">{{book.genre}}</p>
+                            <p class="publishing-year">{{book.publishingYear}}</p>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>

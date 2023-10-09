@@ -63,7 +63,8 @@
               "browserTarget": "AdvSysApp:build:production"
             },
             "development": {
-              "browserTarget": "AdvSysApp:build:development"
+              "browserTarget": "AdvSysApp:build:development",
+              "proxyConfig": "src/proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"
@@ -72,6 +73,7 @@
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
             "browserTarget": "AdvSysApp:build"
+            
           }
         },
         "test": {
